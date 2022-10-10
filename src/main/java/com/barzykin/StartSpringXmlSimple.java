@@ -21,9 +21,9 @@ public class StartSpringXmlSimple {
         Student anna = java.getStudents().get(2);
         anna.print();
 
-        if (true) {
-            throw new RuntimeException();
-        }
+//        if (true) {
+//            throw new RuntimeException();
+//        }
 
     }
 }

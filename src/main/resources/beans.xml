@@ -2,7 +2,9 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-init-method="init" default-destroy-method="destroy"
+>
 
         <bean id="john" class="com.barzykin.model.Student" init-method="initStudent" destroy-method="destroyStudent">
         <constructor-arg index="0" value="1"/>
@@ -40,7 +42,7 @@
         </property>
     </bean>
 
-    <bean id="alex" class="com.barzykin.model.Teacher" init-method="init" destroy-method="destroy">
+    <bean id="alex" class="com.barzykin.model.Teacher">
         <constructor-arg name="id" value="1"/>
         <constructor-arg name="name" value="Alex"/>
         <constructor-arg name="salary" value="1000"/>

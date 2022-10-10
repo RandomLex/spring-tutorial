@@ -26,4 +26,12 @@ public class Teacher extends Person {
         System.out.println(Thread.currentThread().getName() + ": Teacher has been destroyed");
     }
 
+    public void initTeacher() {
+        System.out.println(Thread.currentThread().getName() + ": Teacher has been created - individual");
+    }
+
+    public void destroyTeacher() {
+        System.out.println(Thread.currentThread().getName() + ": Teacher has been destroyed - individual");
+    }
+
 }
