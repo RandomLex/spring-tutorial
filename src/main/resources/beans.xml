@@ -10,11 +10,11 @@
         <constructor-arg index="0" value="1"/>
         <constructor-arg index="1" value="John"/>
         <constructor-arg index="2">
-            <list>
-                <value>8</value>
-                <value>9</value>
-                <value>10</value>
-            </list>
+            <map>
+                <entry key="C" value="8"/>
+                <entry key="Python" value="9"/>
+                <entry key="Java" value="10"/>
+            </map>
         </constructor-arg>
     </bean>
 
@@ -22,11 +22,11 @@
         <property name="id" value="1"/>
         <property name="name" value="Bob"/>
         <property name="marks">
-            <list>
-                <value>7</value>
-                <value>8</value>
-                <value>9</value>
-            </list>
+            <map>
+                <entry key="C" value="7"/>
+                <entry key="Python" value="8"/>
+                <entry key="Java" value="9"/>
+            </map>
         </property>
     </bean>
 
@@ -34,11 +34,12 @@
         <constructor-arg name="id" value="3"/>
         <constructor-arg name="name" value="Anna"/>
         <property name="marks">
-            <list>
-                <value>6</value>
-                <value>7</value>
-                <value>8</value>
-            </list>
+            <map>
+                <entry key="C" value="6"/>
+                <entry key="Python" value="7"/>
+                <entry key="Java" value="8"/>
+            </map>
+
         </property>
     </bean>
 
