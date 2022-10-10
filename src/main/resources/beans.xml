@@ -4,7 +4,7 @@
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="john" class="com.barzykin.model.Student">
+        <bean id="john" class="com.barzykin.model.Student" init-method="initStudent" destroy-method="destroyStudent">
         <constructor-arg index="0" value="1"/>
         <constructor-arg index="1" value="John"/>
         <constructor-arg index="2">
@@ -40,7 +40,7 @@
         </property>
     </bean>
 
-    <bean id="alex" class="com.barzykin.model.Teacher">
+    <bean id="alex" class="com.barzykin.model.Teacher" init-method="init" destroy-method="destroy">
         <constructor-arg name="id" value="1"/>
         <constructor-arg name="name" value="Alex"/>
         <constructor-arg name="salary" value="1000"/>

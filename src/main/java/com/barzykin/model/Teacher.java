@@ -17,4 +17,13 @@ public class Teacher extends Person {
         super(id, name);
         this.salary = salary;
     }
+
+    public void init() {
+        System.out.println(Thread.currentThread().getName() + ": Teacher has been created");
+    }
+
+    public void destroy() {
+        System.out.println(Thread.currentThread().getName() + ": Teacher has been destroyed");
+    }
+
 }

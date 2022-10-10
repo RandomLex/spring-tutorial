@@ -29,4 +29,12 @@ public class Student extends Person {
         this.marks = marks;
     }
 
+    public void initStudent() {
+        System.out.println("Student has been created");
+    }
+
+    public void destroyStudent() {
+        System.out.println("Student has been destroyed");
+    }
+
 }
