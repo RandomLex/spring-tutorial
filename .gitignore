@@ -1,0 +1,6 @@
+*.iml
+*.jpr
+*.class
+target/
+*.tmp
+.idea/
