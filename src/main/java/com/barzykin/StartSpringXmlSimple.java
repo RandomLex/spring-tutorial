@@ -6,6 +6,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.zip.DeflaterOutputStream;
+
+
 public class StartSpringXmlSimple {
     public static void main(String[] args) {
         ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext("beans.xml");
@@ -21,9 +24,9 @@ public class StartSpringXmlSimple {
         Student anna = java.getStudents().get(2);
         anna.print();
 
-//        if (true) {
-//            throw new RuntimeException();
-//        }
+        Group elGroup = ctx.getBean("elGroup", Group.class);
+        elGroup.print();
+
 
     }
 }

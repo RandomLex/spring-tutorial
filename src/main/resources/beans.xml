@@ -53,4 +53,19 @@
     <bean id="java" class="com.barzykin.model.Group" c:id="1" c:name="Java" c:teacher-ref="alex"
           p:students-ref="javaStudents"/>
 
+    <bean id="elGroup" class="com.barzykin.model.Group">
+        <property name="id" value="#{java.id + 1}"/>
+        <property name="name" value="#{'ElGroup-' + new java.util.Random().nextInt(10)}"/>
+        <property name="teacher">
+            <bean class="com.barzykin.model.Teacher" c:id="#{T(java.lang.Math).round(T(java.lang.Math).PI)}"
+                  c:name="#{java.name}-abc" c:salary="#{1000 + new java.util.Random().nextInt(100)}">
+            </bean>
+        </property>
+        <property name="students">
+            <util:list>
+                <bean class="com.barzykin.model.Student" c:id="13" c:name="Student"/>
+            </util:list>
+        </property>
+    </bean>
+
 </beans>
