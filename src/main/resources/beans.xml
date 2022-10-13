@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-init-method="init" default-destroy-method="destroy"
 >
 
-        <bean id="john" class="com.barzykin.model.Student" init-method="initStudent" destroy-method="destroyStudent">
-        <constructor-arg index="0" value="1"/>
-        <constructor-arg index="1" value="John"/>
+        <bean id="john" class="com.barzykin.model.Student" c:_0="1" c:_1="John">
         <constructor-arg index="2">
             <map>
                 <entry key="C" value="8"/>
@@ -18,9 +18,7 @@
         </constructor-arg>
     </bean>
 
-    <bean id="bob" class="com.barzykin.model.Student">
-        <property name="id" value="1"/>
-        <property name="name" value="Bob"/>
+    <bean id="bob" class="com.barzykin.model.Student" p:id="2" p:name="Bob">
         <property name="marks">
             <map>
                 <entry key="C" value="7"/>
@@ -39,20 +37,12 @@
                 <entry key="Python" value="7"/>
                 <entry key="Java" value="8"/>
             </map>
-
         </property>
     </bean>
 
-    <bean id="alex" class="com.barzykin.model.Teacher">
-        <constructor-arg name="id" value="1"/>
-        <constructor-arg name="name" value="Alex"/>
-        <constructor-arg name="salary" value="1000"/>
-    </bean>
+    <bean id="alex" class="com.barzykin.model.Teacher" c:id="1" c:name="Alex" c:salary="1000"/>
 
-    <bean id="java" class="com.barzykin.model.Group">
-        <constructor-arg name="id" value="1"/>
-        <constructor-arg name="name" value="Java"/>
-        <constructor-arg name="teacher" ref="alex"/>
+    <bean id="java" class="com.barzykin.model.Group" c:id="1" c:name="Java" c:teacher-ref="alex">
         <property name="students">
             <list>
                 <ref bean="john"/>
