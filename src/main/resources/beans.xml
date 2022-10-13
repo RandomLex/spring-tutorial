@@ -3,53 +3,54 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/beans/spring-util.xsd
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-init-method="init" default-destroy-method="destroy"
 >
 
-        <bean id="john" class="com.barzykin.model.Student" c:_0="1" c:_1="John">
-        <constructor-arg index="2">
-            <map>
-                <entry key="C" value="8"/>
-                <entry key="Python" value="9"/>
-                <entry key="Java" value="10"/>
-            </map>
-        </constructor-arg>
-    </bean>
+    <util:map id="johnMarks">
+        <entry key="C" value="8"/>
+        <entry key="Python" value="9"/>
+        <entry key="Java" value="10"/>
+    </util:map>
 
-    <bean id="bob" class="com.barzykin.model.Student" p:id="2" p:name="Bob">
-        <property name="marks">
-            <map>
-                <entry key="C" value="7"/>
-                <entry key="Python" value="8"/>
-                <entry key="Java" value="9"/>
-            </map>
-        </property>
-    </bean>
+    <util:map id="bobMarks">
+        <entry key="C" value="7"/>
+        <entry key="Python" value="8"/>
+        <entry key="Java" value="9"/>
+    </util:map>
 
-    <bean id="anna" class="com.barzykin.model.Student">
-        <constructor-arg name="id" value="3"/>
-        <constructor-arg name="name" value="Anna"/>
-        <property name="marks">
-            <map>
-                <entry key="C" value="6"/>
-                <entry key="Python" value="7"/>
-                <entry key="Java" value="8"/>
-            </map>
-        </property>
-    </bean>
+    <util:map id="annaMarks">
+        <entry key="C" value="6"/>
+        <entry key="Python" value="7"/>
+        <entry key="Java" value="8"/>
+    </util:map>
+
+    <bean id="john" class="com.barzykin.model.Student" c:_0="1" c:_1="John" c:_2-ref="johnMarks"/>
+
+    <bean id="bob" class="com.barzykin.model.Student" p:id="2" p:name="Bob" p:marks-ref="bobMarks"/>
+
+    <bean id="anna" class="com.barzykin.model.Student" c:id="3" c:name="Anna" c:marks-ref="annaMarks"/>
 
     <bean id="alex" class="com.barzykin.model.Teacher" c:id="1" c:name="Alex" c:salary="1000"/>
 
-    <bean id="java" class="com.barzykin.model.Group" c:id="1" c:name="Java" c:teacher-ref="alex">
-        <property name="students">
-            <list>
-                <ref bean="john"/>
-                <ref bean="bob"/>
-                <ref bean="anna"/>
-            </list>
-        </property>
-    </bean>
+    <util:list id="javaStudents">
+        <ref bean="john"/>
+        <ref bean="bob"/>
+        <ref bean="anna"/>
+        <bean id="nick" class="com.barzykin.model.Student" c:id="4" c:name="Nick">
+            <property name="marks">
+                <map>
+                    <entry key="C" value="4"/>
+                    <entry key="Java" value="10"/>
+                </map>
+            </property>
+        </bean>
+    </util:list>
+
+    <bean id="java" class="com.barzykin.model.Group" c:id="1" c:name="Java" c:teacher-ref="alex"
+          p:students-ref="javaStudents"/>
 
 </beans>
