@@ -41,7 +41,7 @@
         Можно подсказать спрингу необходимый бин при помощи qualifier, который указывается в аннотации включающего класса
         При этом в Qualifier  аннотации указывается qualifier value.
 -->
-    <bean id="alex" class="com.barzykin.model.Teacher" c:id="${alex.id}" c:name="${alex.name}"
+    <bean id="alex" class="com.barzykin.model.Mentor" c:id="${alex.id}" c:name="${alex.name}"
           c:salary="${alex.salary}" p:certificates="${alex.certs}">
         <qualifier type="com.barzykin.model.qualifiers.AlexQualifier"/>
     </bean>

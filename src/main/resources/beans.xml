@@ -56,7 +56,7 @@
     <bean id="elGroup" class="com.barzykin.model.Group">
         <property name="id" value="#{java.id + 1}"/>
         <property name="name" value="#{'ElGroup-' + new java.util.Random().nextInt(10)}"/>
-        <property name="teacher">
+        <property name="employee">
             <bean class="com.barzykin.model.Teacher" c:id="#{T(java.lang.Math).round(T(java.lang.Math).PI)}"
                   c:name="#{java.name}-abc" c:salary="#{1000 + new java.util.Random().nextInt(100)}">
             </bean>

@@ -1,7 +1,9 @@
+
 package com.barzykin.model;
 
 
-import com.barzykin.model.qualifiers.TeacherQualifier;
+import com.barzykin.model.Person;
+import com.barzykin.model.qualifiers.MentorQualifier;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -13,12 +15,12 @@ import java.util.List;
 @ToString(callSuper = true)
 @Data
 @NoArgsConstructor
-@TeacherQualifier
-public class Teacher extends Person implements Employee {
+@MentorQualifier
+public class Mentor extends Person implements Employee {
     private int salary;
     private List<String> certificates;
 
-    public Teacher(int id, String name, int salary) {
+    public Mentor(int id, String name, int salary) {
         super(id, name);
         this.salary = salary;
     }

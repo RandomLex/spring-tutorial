@@ -1,12 +1,11 @@
 package com.barzykin.model;
 
-import com.barzykin.model.qualifiers.AlexQualifier;
-import com.barzykin.model.qualifiers.AntonQualifier;
+import com.barzykin.model.qualifiers.MentorQualifier;
+import com.barzykin.model.qualifiers.TeacherQualifier;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.util.List;
 
@@ -20,7 +19,7 @@ public class Group implements Printing {
     // совпадающие по типу или являющиеся наследниками указанного типа
     // А подсказать, какой бин мы имеем в виду, мы можем, указав его в аннотации @Qualifier("имя_бина")
     // и добавив аннотацию @Autowire над сеттером нужного поля. В современном спринге @Autowire можно не писать
-    private Teacher teacher;
+    private Employee employee;
     private List<Student> students;
 
     public Group(int id, String  name) {
@@ -29,8 +28,8 @@ public class Group implements Printing {
     }
 
     @Autowired
-    @AlexQualifier
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
+    @MentorQualifier
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 }
