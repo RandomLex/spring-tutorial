@@ -9,7 +9,7 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
-       default-autowire="byName"
+       default-autowire="byType"
 
 >
 
@@ -35,11 +35,12 @@
         <property name="marks" value="#{${bob.marks}}"/>
     </bean>
 
+<!--    Предположим, что у нас только 1 кандидат - 'alex', а 'anton' отсутстует-->
     <bean id="alex" class="com.barzykin.model.Teacher" c:id="${alex.id}" c:name="${alex.name}"
           c:salary="${alex.salary}" p:certificates="${alex.certs}"/>
 
-    <bean id="anton" class="com.barzykin.model.Teacher" c:id="${anton.id}" c:name="${anton.name}"
-          c:salary="${anton.salary}" p:certificates="${anton.certs}"/>
+<!--    <bean id="anton" class="com.barzykin.model.Teacher" c:id="${anton.id}" c:name="${anton.name}"-->
+<!--          c:salary="${anton.salary}" p:certificates="${anton.certs}"/>-->
 
     <util:list id="javaStudents">
         <ref bean="john"/>

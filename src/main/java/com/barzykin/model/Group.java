@@ -12,8 +12,9 @@ import java.util.List;
 public class Group implements Printing {
     private int id;
     private String name;
-    //В качестве названия поля мы используем название бина. При этом в конф. указан тип autowire byName
-    private Teacher alex;
+    // В конф. указан тип autowire byType. При этом название поля игорируется и спринг пытается найти любые бины,
+    // совпадающие по типу или являющиеся наследниками указанного типа
+    private Teacher teacher;
     private List<Student> students;
 
     public Group(int id, String  name) {
