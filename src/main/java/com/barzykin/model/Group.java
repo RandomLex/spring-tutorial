@@ -12,12 +12,13 @@ import java.util.List;
 public class Group implements Printing {
     private int id;
     private String name;
-    private Teacher teacher;
+    //В качестве названия поля мы используем название бина. При этом в конф. указан тип autowire byName
+    private Teacher alex;
     private List<Student> students;
 
-    public Group(int id, String  name, Teacher teacher) {
+    public Group(int id, String  name) {
         this.id = id;
         this.name = name;
-        this.teacher = teacher;
     }
+
 }

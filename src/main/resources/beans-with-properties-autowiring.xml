@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       default-autowire="byName"
+
+>
+
+    <context:property-placeholder location="teachers.properties,
+        bob.properties,
+        john.properties"/>
+
+    <util:map id="johnMarks">
+        <entry key="C" value="8"/>
+        <entry key="Python" value="9"/>
+        <entry key="Java" value="10"/>
+    </util:map>
+
+    <util:map id="bobMarks">
+        <entry key="C" value="7"/>
+        <entry key="Python" value="8"/>
+        <entry key="Java" value="9"/>
+    </util:map>
+
+    <bean id="john" class="com.barzykin.model.Student" c:_0="${john.id}" c:_1="${john.name}" c:_2="#{${john.marks}}"/>
+
+    <bean id="bob" class="com.barzykin.model.Student" p:id="${bob.id}" p:name="${bob.name}">
+        <property name="marks" value="#{${bob.marks}}"/>
+    </bean>
+
+    <bean id="alex" class="com.barzykin.model.Teacher" c:id="${alex.id}" c:name="${alex.name}"
+          c:salary="${alex.salary}" p:certificates="${alex.certs}"/>
+
+    <bean id="anton" class="com.barzykin.model.Teacher" c:id="${anton.id}" c:name="${anton.name}"
+          c:salary="${anton.salary}" p:certificates="${anton.certs}"/>
+
+    <util:list id="javaStudents">
+        <ref bean="john"/>
+        <ref bean="bob"/>
+        <bean id="nick" class="com.barzykin.model.Student" c:id="4" c:name="Nick">
+            <property name="marks">
+                <map>
+                    <entry key="C" value="4"/>
+                    <entry key="Java" value="10"/>
+                </map>
+            </property>
+        </bean>
+    </util:list>
+
+    <bean id="java" class="com.barzykin.model.Group" c:id="1" c:name="Java"
+          p:students-ref="javaStudents"/>
+
+
+</beans>
