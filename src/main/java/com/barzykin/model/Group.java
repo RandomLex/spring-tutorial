@@ -27,7 +27,7 @@ public class Group implements Printing {
     }
 
     @Autowired
-    @Qualifier("alex")
+    @Qualifier("alex-qualifier")
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }

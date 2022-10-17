@@ -39,14 +39,17 @@
 
 <!--    Предположим, что у нас только 2 кандидата - 'alex', и 'anton'
         Можно подсказать спрингу необходимый бин при помощи qualifier, который указывается в аннотации включающего класса
-        При этом по умолчанию в Qualifier  аннотации можно указать имя необходимого бина.
+        При этом в Qualifier  аннотации указывается qualifier value.
 -->
     <bean id="alex" class="com.barzykin.model.Teacher" c:id="${alex.id}" c:name="${alex.name}"
           c:salary="${alex.salary}" p:certificates="${alex.certs}">
+        <qualifier value="alex-qualifier"/>
     </bean>
 
     <bean id="anton" class="com.barzykin.model.Teacher" c:id="${anton.id}" c:name="${anton.name}"
-          c:salary="${anton.salary}" p:certificates="${anton.certs}" />
+          c:salary="${anton.salary}" p:certificates="${anton.certs}">
+        <qualifier value="anton-qualifier"/>
+    </bean>
 
     <util:list id="javaStudents">
         <ref bean="john"/>
