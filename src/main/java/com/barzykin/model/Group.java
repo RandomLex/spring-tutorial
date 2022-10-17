@@ -1,5 +1,7 @@
 package com.barzykin.model;
 
+import com.barzykin.model.qualifiers.AlexQualifier;
+import com.barzykin.model.qualifiers.AntonQualifier;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,7 +29,7 @@ public class Group implements Printing {
     }
 
     @Autowired
-    @Qualifier("alex-qualifier")
+    @AlexQualifier
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
