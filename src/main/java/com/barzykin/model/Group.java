@@ -3,6 +3,8 @@ package com.barzykin.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.util.List;
 
@@ -14,6 +16,8 @@ public class Group implements Printing {
     private String name;
     // В конф. указан тип autowire byType. При этом название поля игорируется и спринг пытается найти любые бины,
     // совпадающие по типу или являющиеся наследниками указанного типа
+    // А подсказать, какой бин мы имеем в виду, мы можем, указав его в аннотации @Qualifier("имя_бина")
+    // и добавив аннотацию @Autowire над сеттером нужного поля. В современном спринге @Autowire можно не писать
     private Teacher teacher;
     private List<Student> students;
 
@@ -22,4 +26,9 @@ public class Group implements Printing {
         this.name = name;
     }
 
+    @Autowired
+    @Qualifier("alex")
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
 }
