@@ -35,12 +35,14 @@
         <property name="marks" value="#{${bob.marks}}"/>
     </bean>
 
-<!--    Предположим, что у нас только 1 кандидат - 'alex', а 'anton' отсутстует-->
+<!--    Предположим, что у нас только 2 кандидата - 'alex', и 'anton'
+        Тогда можно указать один из бинов явным кандидатом при помощи параметра 'primary'
+-->
     <bean id="alex" class="com.barzykin.model.Teacher" c:id="${alex.id}" c:name="${alex.name}"
-          c:salary="${alex.salary}" p:certificates="${alex.certs}"/>
+          c:salary="${alex.salary}" p:certificates="${alex.certs}" primary="true"/>
 
-<!--    <bean id="anton" class="com.barzykin.model.Teacher" c:id="${anton.id}" c:name="${anton.name}"-->
-<!--          c:salary="${anton.salary}" p:certificates="${anton.certs}"/>-->
+    <bean id="anton" class="com.barzykin.model.Teacher" c:id="${anton.id}" c:name="${anton.name}"
+          c:salary="${anton.salary}" p:certificates="${anton.certs}"/>
 
     <util:list id="javaStudents">
         <ref bean="john"/>
