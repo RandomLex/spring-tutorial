@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,7 @@ import java.util.Map;
 @ToString(callSuper = true)
 @Getter
 @NoArgsConstructor
+@Component
 public class Student extends Person {
     private Map<String, Integer> marks;
 
