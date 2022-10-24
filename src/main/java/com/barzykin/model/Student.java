@@ -15,7 +15,6 @@ import java.util.Map;
 @ToString(callSuper = true)
 @Getter
 @NoArgsConstructor
-@Component
 public class Student extends Person {
     private Map<String, Integer> marks;
 

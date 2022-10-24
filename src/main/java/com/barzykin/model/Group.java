@@ -1,5 +1,7 @@
 package com.barzykin.model;
 
+import com.barzykin.model.qualifiers.MentorQualifier;
+import com.barzykin.model.qualifiers.TeacherQualifier;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -14,11 +16,8 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Component("java")
 public class Group implements Printing {
-    @Value("555")
     private int id;
-    @Value("Java EE")
     private String name;
     // В конф. указан тип autowire byType. При этом название поля игорируется и спринг пытается найти любые бины,
     // совпадающие по типу или являющиеся наследниками указанного типа
@@ -32,12 +31,6 @@ public class Group implements Printing {
         this.name = name;
     }
 
-    public Group(int id, String name, Employee employee) {
-        this.id = id;
-        this.name = name;
-        this.employee = employee;
-    }
-    @Autowired
     public void setEmployee(Employee employee) {
         this.employee = employee;
     }
