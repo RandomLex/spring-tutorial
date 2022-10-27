@@ -31,6 +31,11 @@ public class Group implements Printing {
         this.name = name;
     }
 
+    public Group(int id, String  name, Employee employee) {
+        this.id = id;
+        this.name = name;
+        this.employee = employee;
+    }
     public void setEmployee(Employee employee) {
         this.employee = employee;
     }

@@ -50,8 +50,16 @@
         </bean>
     </util:list>
 
-    <bean id="java" class="com.barzykin.model.Group" c:id="1" c:name="Java" c:teacher-ref="alex"
+    <bean id="java" class="com.barzykin.model.Group" c:id="1" c:name="Java" c:employee-ref="alex"
           p:students-ref="javaStudents"/>
+
+<!--    <bean id="java" class="com.barzykin.model.Group">-->
+<!--        <constructor-arg name="id" value="1"/>-->
+<!--        <constructor-arg name="name" value="Java"/>-->
+<!--        <constructor-arg name="employee" ref="alex"/>-->
+<!--        <property name="students" ref="javaStudents"/>-->
+<!--    </bean>-->
+
 
     <bean id="elGroup" class="com.barzykin.model.Group">
         <property name="id" value="#{java.id + 1}"/>
