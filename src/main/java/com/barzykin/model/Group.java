@@ -19,10 +19,10 @@ import java.util.List;
 public class Group implements Printing {
     private int id;
     private String name;
-    // В конф. указан тип autowire byType. При этом название поля игорируется и спринг пытается найти любые бины,
-    // совпадающие по типу или являющиеся наследниками указанного типа
-    // А подсказать, какой бин мы имеем в виду, мы можем, указав его в аннотации @Qualifier("имя_бина")
-    // и добавив аннотацию @Autowire над сеттером нужного поля. В современном спринге @Autowire можно не писать
+
+    //Использование @Value перезатирает предыдущее внедрение (injection) бина alex (см. JavaBasedConfiguration класс), потому, что в
+    // жизненном цикле бина установка @Value происходит позже.
+    @Value("#{anton}")
     private Employee employee;
     private List<Student> students;
 

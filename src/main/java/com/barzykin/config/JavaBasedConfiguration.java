@@ -62,9 +62,9 @@ public class JavaBasedConfiguration {
 
     @Bean
     public Employee anton() {
-        Teacher alex = new Teacher(2, "Anton", 800);
-        alex.setCertificates(List.of("Java", "JEE"));
-        return alex;
+        Teacher anton = new Teacher(2, "Anton", 800);
+        anton.setCertificates(List.of("Java", "JEE"));
+        return anton;
     }
 
     @Bean
