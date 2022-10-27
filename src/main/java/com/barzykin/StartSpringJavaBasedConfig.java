@@ -1,7 +1,6 @@
 package com.barzykin;
 
 import com.barzykin.model.Group;
-import com.barzykin.model.Student;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -12,6 +11,8 @@ public class StartSpringJavaBasedConfig {
 
         Group java = ctx.getBean("java", Group.class);
         java.print();
+        System.out.println();
+        java.printEmployees();
 
 //        Student john = ctx.getBean("john", Student.class);
 //        john.print();

@@ -68,8 +68,9 @@ public class JavaBasedConfiguration {
     }
 
     @Bean
-    public Group java(@Autowired Employee alex, @Autowired Student john, @Autowired Student bob) {
-        Group javaEe = new Group(1, "Java EE", alex, List.of(john, bob));
+    public Group java(@Autowired Student john, @Autowired Student bob) {
+        Group javaEe = new Group(1, "Java EE");
+        javaEe.setStudents(List.of(john, bob));
         return javaEe;
     }
 
