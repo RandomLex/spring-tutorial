@@ -7,16 +7,33 @@ import com.barzykin.model.Student;
 import com.barzykin.model.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import java.util.List;
 import java.util.Map;
 
 @Configuration
+@ComponentScan("com")
 @PropertySource({"classpath:john.properties", "classpath:bob.properties", "classpath:teachers.properties"})
+@EnableWebMvc
 public class JavaBasedConfiguration {
+
+    @Bean
+    public InternalResourceViewResolver internalResourceViewResolver(@Autowired ApplicationContext ctx) {
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setApplicationContext(ctx);
+        resolver.setPrefix("/jsp/");
+        resolver.setSuffix(".jsp");
+        return resolver;
+    }
+
     @Value("${john.id}")
     private int johnId;
     @Value("${john.name}")
