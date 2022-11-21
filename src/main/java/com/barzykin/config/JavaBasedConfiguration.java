@@ -11,6 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -23,6 +24,7 @@ import java.util.Map;
 @ComponentScan("com")
 @PropertySource({"classpath:john.properties", "classpath:bob.properties", "classpath:teachers.properties"})
 @EnableWebMvc
+@EnableAspectJAutoProxy
 public class JavaBasedConfiguration {
 
     @Bean
