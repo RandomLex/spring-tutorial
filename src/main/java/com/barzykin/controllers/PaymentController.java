@@ -1,5 +1,6 @@
 package com.barzykin.controllers;
 
+import com.barzykin.aop.OneToTen;
 import com.barzykin.model.Payment;
 import com.barzykin.repositories.PaymentsRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,7 @@ public class PaymentController {
     private final PaymentsRepository repository;
 
     @GetMapping(value = "/payments")
+    @OneToTen
     public List<Payment> getPaymentHistory() {
         return repository.getAll();
     }
